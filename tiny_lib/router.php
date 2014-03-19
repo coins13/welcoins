@@ -14,18 +14,18 @@ use Welcoins\Exception\RouteException as RouteException;
 
 class Router
 {
-  private static $routes = [
-    '/'                     => ['id' => 'root',     'action' => 'redirect_default'],
-    '/error'                => ['id' => 'error',    'action' => 'error'],
-    '/register'             => ['id' => 'register', 'action' => 'register'],
-    '/register/additional'  => ['id' => 'register', 'action' => 'additional'],
-    '/register/confirm'     => ['id' => 'register', 'action' => 'confirm'],
-    '/register/sent'        => ['id' => 'register', 'action' => 'sent'],
-    '/admin'                => ['id' => 'admin',    'action' => 'admin'],
-    '/admin/logout'         => ['id' => 'admin',    'action' => 'logout'],
-    '/admin/login'          => ['id' => 'admin',    'action' => 'login'],
-    '/admin/password'       => ['id' => 'admin',    'action' => 'password']
-  ];
+  private static $routes = array(
+    '/'                     => array('id' => 'root',     'action' => 'redirect_default'),
+    '/error'                => array('id' => 'error',    'action' => 'error'),
+    '/register'             => array('id' => 'register', 'action' => 'register'),
+    '/register/additional'  => array('id' => 'register', 'action' => 'additional'),
+    '/register/confirm'     => array('id' => 'register', 'action' => 'confirm'),
+    '/register/sent'        => array('id' => 'register', 'action' => 'sent'),
+    '/admin'                => array('id' => 'admin',    'action' => 'admin'),
+    '/admin/logout'         => array('id' => 'admin',    'action' => 'logout'),
+    '/admin/login'          => array('id' => 'admin',    'action' => 'login'),
+    '/admin/password'       => array('id' => 'admin',    'action' => 'password')
+  );
 
   public static function dispatch()
   {
@@ -33,7 +33,7 @@ class Router
     $pathname = $param->pathname;
 
     foreach (self::$routes as $route => $data) {
-      if (preg_match('/^' .preg_quote($route, '/') .'$/', $pathname)) {
+      if (preg_match('/^' .preg_quote(BASE .$route, '/') .'$/', $pathname)) {
         $param->pageId = $data['id'];
         $controller = new ApplicationController;
         $controller->invokeAction($data['action']);

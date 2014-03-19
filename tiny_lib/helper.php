@@ -19,17 +19,17 @@ class Helper
 
   public function mainMenuAnchor($id, $pathname, $value)
   {
-    $classNames = [self::MAIN_MENU_ANCHOR];
+    $classNames = array(self::MAIN_MENU_ANCHOR);
 
     if (Parameter::get()->pageId === $id)
       array_push($classNames, self::MAIN_MENU_ACTIVE_ANCHOR);
 
-    return '<a href="' .$pathname .'" class="' .implode(' ', $classNames) .'">' .$value .'</a>';
+    return '<a href="' .BASE .$pathname .'" class="' .implode(' ', $classNames) .'">' .$value .'</a>';
   }
 
-  public function formTextInput(array $attrs, array $option = [])
+  public function formTextInput(array $attrs, array $option = array())
   {
-    $class = isset($attrs['class']) ? $attrs['class'] : [];
+    $class = isset($attrs['class']) ? $attrs['class'] : array();
     $name = isset($attrs['name']) ? $attrs['name'] : '';
     $type = isset($attrs['type']) ? $attrs['type'] : 'text';
     $placeholder = isset($attrs['placeholder']) ? $attrs['placeholder'] : '';
@@ -44,13 +44,13 @@ class Helper
     if (isset($option['error']) && $option['error'] === true || isset($option[$name]) && $option[$name]['error'])
       array_push($class, 'form-error');
 
-    $htmlAttrs = [
+    $htmlAttrs = array(
       'type="' .$type .'"',
       count($class) > 0 ? 'class="' .implode(' ', $class) .'"' : '',
       $name !== '' ? 'name="' .$name .'"' : '',
       $value !== '' ? 'value="' .$value .'"' : '',
       $placeholder !== '' ? 'placeholder="' .$placeholder .'"' : ''
-    ];
+    );
 
     if (isset($attrs['textarea']))
       return '<textarea ' .implode(' ', $htmlAttrs) .'>' .$value .'</textarea>';
@@ -58,9 +58,9 @@ class Helper
     return '<input ' .implode(' ', $htmlAttrs) .' />';
   }
 
-  public function formRadioInput(array $attrs, array $option = [])
+  public function formRadioInput(array $attrs, array $option = array())
   {
-    $class = isset($attrs['class']) ? $attrs['class'] : [];
+    $class = isset($attrs['class']) ? $attrs['class'] : array();
     $name = isset($attrs['name']) ? $attrs['name'] : '';
     $value = isset($attrs['value']) ? $attrs['value'] : '';
     $for = isset($attrs['for']) ? $attrs['for'] : '';
@@ -76,13 +76,13 @@ class Helper
     if (isset($option[$name]) && $option[$name]['error'])
       array_push($class, 'form-error');
 
-    $htmlAttrs = [
+    $htmlAttrs = array(
       'type="radio"',
       count($class) > 0 ? 'class="' .implode(' ', $class) .'"' : '',
       $checked === true ? 'checked' : '',
       $name !== '' ? 'name="' .$name .'"' : '',
       $value !== '' ? 'value="' .$value .'"' : ''
-    ];
+    );
 
     $elems = '<input ' .implode(' ', $htmlAttrs) .' />';
     $elems .= '<label ' .$this->markError($name, $option) .' for="' .$for .'">' .$label .'</label>';

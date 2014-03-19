@@ -13,6 +13,7 @@ use Welcoins\Renderer as Renderer;
 use Welcoins\Validator\ApplicationValidator as ApplicationValidator;
 use Welcoins\Exception\ActionException as ActionException;
 use Welcoins\Component\SessionComponent as SessionComponent;
+use Welcoins\Config as Config;
 
 class Controller
 {
@@ -48,7 +49,7 @@ class Controller
   public function accept($pathnames)
   {
     if (gettype($pathnames) !== 'array')
-      $pathnames = [$pathnames];
+      $pathnames = array($pathnames);
 
     foreach ($pathnames as $pathname) {
       if($this->checkReferer($pathname))
@@ -62,8 +63,8 @@ class Controller
   {
     $param = $this->parameter;
     $current = $param->https ? 'https://' : 'http://';
-    $current .= $param->serverName .($param->port !== '80' ? ':' .$param->port : '');
-    $current .= $pathname;
+    $current .= $param->serverName .(!preg_match('/^(80|443)$/', $param->port) ? ':' .$param->port : '');
+    $current .= BASE .$pathname;
 
     $referer = explode('?', $param->referer);
     $referer = array_shift($referer);
@@ -76,18 +77,18 @@ class Controller
   public function redirect($pathname)
   {
     header('HTTP/1.1 301 Moved Permanently');
-    header("Location: {$pathname}");
+    header('Location: ' .BASE .$pathname);
     exit();
   }
 
-  public function render($page, $option = [])
+  public function render($page, $option = array())
   {
     $renderer = new Renderer();
     $renderer->render($this->parameter->pageId, $page, $option);
     $this->autoRendering = false;
   }
 
-  public function validate($id, array $post, array $omit = [])
+  public function validate($id, array $post, array $omit = array())
   {
     $validator = new ApplicationValidator();
     return $validator->invokeValidation($id, $post, $omit);

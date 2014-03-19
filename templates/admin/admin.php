@@ -30,9 +30,9 @@
             <th>メールアドレス</th>
           </tr>
           <tr>
-          <td><?= $record->name ?></td>
-          <td><?= $record->ruby ?></td>
-          <td><?= $record->email ?></td>
+          <td><?php echo $record->name; ?></td>
+          <td><?php echo $record->ruby; ?></td>
+          <td><?php echo $record->email; ?></td>
           </tr>
         </table>
         <table class="registry-table registry-table-second" cellspacing="0" cellpadding="0">
@@ -41,8 +41,8 @@
             <th>その他</th>
           </tr>
           <tr>
-            <td><?= empty($record->allergy) ? 'なし' : $record->allergy ?></td>
-            <td><?= empty($record->question) ? 'なし' : $record->question ?></td>
+            <td><?php echo empty($record->allergy) ? 'なし' : $record->allergy ?></td>
+            <td><?php echo empty($record->question) ? 'なし' : $record->question ?></td>
           </tr>
         </table>
         <?php } } ?>
@@ -67,9 +67,9 @@
             <th>メールアドレス</th>
           </tr>
           <tr>
-          <td><?= $record->name ?></td>
-          <td><?= $record->ruby ?></td>
-          <td><?= $record->email ?></td>
+          <td><?php echo $record->name ?></td>
+          <td><?php echo $record->ruby ?></td>
+          <td><?php echo $record->email ?></td>
           </tr>
         </table>
         <table class="registry-table registry-table-second" cellspacing="0" cellpadding="0">
@@ -78,8 +78,8 @@
             <th>その他</th>
           </tr>
           <tr>
-            <td><?= empty($record->allergy) ? 'なし' : $record->allergy ?></td>
-            <td><?= empty($record->question) ? 'なし' : $record->question ?></td>
+            <td><?php echo empty($record->allergy) ? 'なし' : $record->allergy ?></td>
+            <td><?php echo empty($record->question) ? 'なし' : $record->question ?></td>
           </tr>
         </table>
         <?php } } ?>
@@ -104,9 +104,9 @@
             <th>メールアドレス</th>
           </tr>
           <tr>
-          <td><?= $record->name ?></td>
-          <td><?= $record->ruby ?></td>
-          <td><?= $record->email ?></td>
+          <td><?php echo $record->name ?></td>
+          <td><?php echo $record->ruby ?></td>
+          <td><?php echo $record->email ?></td>
           </tr>
         </table>
         <table class="registry-table registry-table-second" cellspacing="0" cellpadding="0">
@@ -114,7 +114,7 @@
             <th>その他</th>
           </tr>
           <tr>
-            <td><?= empty($record->question) ? 'なし' : $record->question ?></td>
+            <td><?php echo empty($record->question) ? 'なし' : $record->question ?></td>
           </tr>
         </table>
         <?php } } ?>
@@ -139,9 +139,9 @@
             <th>メールアドレス</th>
           </tr>
           <tr>
-          <td><?= $record->name ?></td>
-          <td><?= $record->ruby ?></td>
-          <td><?= $record->email ?></td>
+          <td><?php echo $record->name ?></td>
+          <td><?php echo $record->ruby ?></td>
+          <td><?php echo $record->email ?></td>
           </tr>
         </table>
         <table class="registry-table registry-table-second" cellspacing="0" cellpadding="0">
@@ -150,8 +150,8 @@
             <th>新歓合宿に参加しない理由</th>
           </tr>
           <tr>
-            <td><?= empty($record->question) ? 'なし' : $record->question ?></td>
-            <td><?= $record->reason ?></td>
+            <td><?php echo empty($record->question) ? 'なし' : $record->question ?></td>
+            <td><?php echo $record->reason ?></td>
           </tr>
         </table>
         <?php } } ?>
@@ -163,12 +163,12 @@
 <script type="text/javascript">
   var statistics = {
     gathering: {
-      attend: <?= $gatheringAttender ?>,
-      decline: <?= $gatheringDecliner ?>
+      attend: <?php echo $gatheringAttender ?>,
+      decline: <?php echo $gatheringDecliner ?>
     },
     training: {
-      attend: <?= $trainingAttender ?>,
-      decline: <?= $trainingDecliner ?>
+      attend: <?php echo $trainingAttender ?>,
+      decline: <?php echo $trainingDecliner ?>
     }
   };
 </script>

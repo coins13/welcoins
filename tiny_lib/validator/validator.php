@@ -10,31 +10,31 @@ namespace Welcoins\Validator;
 
 class Validator
 {
-  protected $rules = [];
+  protected $rules = array();
 
-  public function invokeValidation($id, array $param, array $omit = [])
+  public function invokeValidation($id, array $param, array $omit = array())
   {
     $validation = $this->rules[$id];
-    $result = ['error' => false, 'parameters' => []];
+    $result = array('error' => false, 'parameters' => array());
 
     foreach ($validation as $name => $case) {
       if (in_array($name, $omit)) continue;
 
       if (!isset($param[$name])) {
         $result['error'] = true;
-        $result['parameters'][$name] = ['value' => '', 'error' => true];
+        $result['parameters'][$name] = array('value' => '', 'error' => true);
       } else if (!$this->validate($case, $param[$name])) {
         $result['error'] = true;
-        $result['parameters'][$name] = ['value' => $this->escape($param[$name]), 'error' => true];
+        $result['parameters'][$name] = array('value' => $this->escape($param[$name]), 'error' => true);
       } else {
-        $result['parameters'][$name] = ['value' => $this->escape($param[$name]), 'error' => false];
+        $result['parameters'][$name] = array('value' => $this->escape($param[$name]), 'error' => false);
       }
     }
 
     return $result;
   }
 
-  public function toJson($id, array $omit = [])
+  public function toJson($id, array $omit = array())
   {
     return json_decode($this->omit($omit, $this->validation[$id]));
   }

@@ -12,72 +12,72 @@ use Welcoins\Validator\Validator as Validator;
 
 class ApplicationValidator extends Validator
 {
-  protected $rules = [
-    'register' => [
-      'name' => [
+  protected $rules = array(
+    'register' => array(
+      'name' => array(
         'rule' => 'string',
         'required' => true
-      ],
-      'ruby' => [
+      ),
+      'ruby' => array(
         'rule' => 'katakana',
         'required' => true
-      ],
-      'email' => [
+      ),
+      'email' => array(
         'rule' => 'email',
         'required' => true
-      ],
-      'gathering' => [
+      ),
+      'gathering' => array(
         'rule' => 'boolean',
         'required' => true
-      ],
-      'training' => [
+      ),
+      'training' => array(
         'rule' => 'boolean',
         'required' => true
-      ]
-    ],
+      )
+    ),
 
-    'additional' => [
-      'allergy' => [
+    'additional' => array(
+      'allergy' => array(
         'rule' => 'string',
         'allowEmpty' => true
-      ],
-      'reason' => [
+      ),
+      'reason' => array(
         'rule' => 'string',
         'required' => true
-      ],
-      'question' => [
+      ),
+      'question' => array(
         'rule' => 'string',
         'allowEmpty' => true
-      ]
-    ],
+      )
+    ),
 
-    'confirm' => [
-      'confirm' => [
+    'confirm' => array(
+      'confirm' => array(
         'rule' => 'boolean',
         'required' => true
-      ]
-    ],
+      )
+    ),
 
-    'login' => [
-      'username' => [
+    'login' => array(
+      'username' => array(
         'rule' => 'alphaNumeric',
         'required' => true
-      ],
-      'password' => [
+      ),
+      'password' => array(
         'rule' => 'string',
         'required' => true
-      ]
-    ],
+      )
+    ),
 
-    'password' => [
-      'password' => [
+    'password' => array(
+      'password' => array(
         'rule' => 'string',
         'required' => true
-      ],
-      'recheck' => [
+      ),
+      'recheck' => array(
         'rule' => 'string',
         'required' => true
-      ]
-    ]
-  ];
+      )
+    )
+  );
 }

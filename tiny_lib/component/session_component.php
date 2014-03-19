@@ -18,7 +18,7 @@ class SessionComponent
 
   public function destroy()
   {
-    $_SESSION = [];
+    $_SESSION = array();
 
     if (isset($_COOKIE[session_name()])) {
       $params = session_get_cookie_params();
@@ -32,7 +32,7 @@ class SessionComponent
   public function clear($keys)
   {
     if (gettype($keys) !== 'array')
-      $keys = [$keys];
+      $keys = array($keys);
 
     foreach ($keys as $key)
       if (isset($_SESSION[$key])) unset($_SESSION[$key]);
@@ -44,7 +44,7 @@ class SessionComponent
       return false;
 
     if (gettype($keys) !== 'array')
-      $keys = [$keys];
+      $keys = array($keys);
 
     $result = true;
 

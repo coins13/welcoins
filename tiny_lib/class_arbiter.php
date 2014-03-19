@@ -62,8 +62,8 @@ class ClassArbiter
       . preg_quote(self::CLASS_SEPARATOR)
       . '[a-zA-Z][a-zA-Z0-9]*)*$/';
 
-    spl_autoload_register(['self', 'loadClass']);
-    set_exception_handler(['Welcoins\\Exception\\ExceptionHandler', 'handle']);
+    spl_autoload_register(array('self', 'loadClass'));
+    set_exception_handler(array('Welcoins\\Exception\\ExceptionHandler', 'handle'));
   }
 
   /**

@@ -20,7 +20,7 @@
     </div>
 
     <div class="section">
-      <form action="/register" method="post">
+      <?php echo '<form action="' .BASE .'/register" method="post">'; ?>
         <fieldset class="form-fieldset">
           <legend>1.氏名 <span class="form-required">*</span></legend>
           <div class="form-description">
@@ -28,7 +28,7 @@
           </div>
           <div class="form-part">
             <label for="name">
-              <?= $this->formTextInput(['name' => 'name', 'placeholder' => '例: 筑波太郎'], $this->option) ?>
+              <?php echo $this->formTextInput(array('name' => 'name', 'placeholder' => '例: 筑波太郎'), $this->option); ?>
             </label>
           </div>
         </fieldset>
@@ -40,7 +40,7 @@
           </div>
           <div class="form-part">
             <label for="ruby">
-              <?= $this->formTextInput(['name' => 'ruby', 'placeholder' => '例: ツクバタロウ'], $this->option) ?>
+              <?php echo $this->formTextInput(array('name' => 'ruby', 'placeholder' => '例: ツクバタロウ'), $this->option); ?>
             </label>
           </div>
         </fieldset>
@@ -52,7 +52,7 @@
           </div>
           <div class="form-part">
             <label for="email">
-              <?= $this->formTextInput(['name' => 'email', 'placeholder' => 'mail@example.com'], $this->option) ?>
+              <?php echo $this->formTextInput(array('name' => 'email', 'placeholder' => 'mail@example.com'), $this->option); ?>
             </label>
           </div>
         </fieldset>
@@ -64,10 +64,10 @@
           </div>
           <div class="form-part">
             <div class="form-part-set">
-              <?= $this->formRadioInput(['name' => 'gathering', 'value' => 'false', 'for' => 'decline-gathering', 'label' => '参加しない'], $this->option) ?>
+              <?php echo $this->formRadioInput(array('name' => 'gathering', 'value' => 'false', 'for' => 'decline-gathering', 'label' => '参加しない'), $this->option); ?>
             </div>
             <div class="form-part-set">
-              <?= $this->formRadioInput(['name' => 'gathering', 'value' => 'true', 'for' => 'attend-gathering', 'label' => '参加する'], $this->option) ?>
+              <?php echo $this->formRadioInput(array('name' => 'gathering', 'value' => 'true', 'for' => 'attend-gathering', 'label' => '参加する'), $this->option); ?>
             </div>
           </div>
         </fieldset>
@@ -79,10 +79,10 @@
           </div>
           <div class="form-part">
             <div class="form-part-set">
-              <?= $this->formRadioInput(['name' => 'training', 'value' => 'false', 'for' => 'decline-training', 'label' => '参加しない'], $this->option) ?>
+              <?php echo $this->formRadioInput(array('name' => 'training', 'value' => 'false', 'for' => 'decline-training', 'label' => '参加しない'), $this->option); ?>
             </div>
             <div class="form-part-set">
-              <?= $this->formRadioInput(['name' => 'training', 'value' => 'true', 'for' => 'attend-training', 'label' => '参加する'], $this->option) ?>
+              <?php echo $this->formRadioInput(array('name' => 'training', 'value' => 'true', 'for' => 'attend-training', 'label' => '参加する'), $this->option); ?>
             </div>
           </div>
         </fieldset>

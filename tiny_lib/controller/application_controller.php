@@ -24,11 +24,12 @@ class ApplicationController extends Controller
   const ADMIN_LOGOUT_PATH         = '/admin/logout';
   const ADMIN_PASSWORD_PATH       = '/admin/password';
 
-  protected $allowActions = [
+  protected $allowActions = array(
+    'redirectDefault',
     'register',    'additional', 'confirm',
     'sent',        'error',      'notFound',
     'serverError', 'admin',      'login',
-    'logout',      'password'];
+    'logout',      'password');
 
   public function __construct()
   {
@@ -59,10 +60,10 @@ class ApplicationController extends Controller
       $this->render('register', $result['parameters']);
 
     } else if ($method === 'GET') {
-      if ($this->accept([self::REGISTER_ADDITIONAL_PATH, self::REGISTER_CONFIRM_PATH]) && $this->session->has('base'))
+      if ($this->accept(array(self::REGISTER_ADDITIONAL_PATH, self::REGISTER_CONFIRM_PATH)) && $this->session->has('base'))
         $this->render('register', $this->session->base);
       else
-        $this->session->clear(['base', 'additional']);
+        $this->session->clear(array('base', 'additional'));
     }
   }
 
@@ -74,7 +75,7 @@ class ApplicationController extends Controller
       if (!$this->accept(self::REGISTER_ADDITIONAL_PATH) || !$this->session->has('base'))
         $this->redirect(self::ERROR_PATH);
 
-      $omit = [];
+      $omit = array();
       $base = $this->session->base;
 
       if ($base['training']['value'] === 'true')
@@ -93,8 +94,8 @@ class ApplicationController extends Controller
 
       $this->render('additional', array_merge($result['parameters'], $this->session->base));
 
-    } else if ($method === 'GET' && $this->accept([self::REGISTER_CONFIRM_PATH, self::REGISTER_PATH])) {
-      if ($this->session->has(['base', 'additional']))
+    } else if ($method === 'GET' && $this->accept(array(self::REGISTER_CONFIRM_PATH, self::REGISTER_PATH))) {
+      if ($this->session->has(array('base', 'additional')))
         $this->render('additional', array_merge($this->session->base, $this->session->additional));
       else if ($this->session->has('base'))
         $this->render('additional', $this->session->base);
@@ -111,7 +112,7 @@ class ApplicationController extends Controller
     $method = $this->parameter->requestMethod;
 
     if ($method === 'POST') {
-      if (!$this->accept(self::REGISTER_CONFIRM_PATH) || !$this->session->has(['base', 'additional']))
+      if (!$this->accept(self::REGISTER_CONFIRM_PATH) || !$this->session->has(array('base', 'additional')))
         $this->redirect(self::ERROR_PATH);
 
       $result = $this->validate('confirm', $this->parameter->post);
@@ -122,7 +123,7 @@ class ApplicationController extends Controller
       $this->redirect(self::ERROR_PATH);
 
     } else if ($method === 'GET' && $this->accept(self::REGISTER_ADDITIONAL_PATH)) {
-      if ($this->session->has(['base', 'additional']))
+      if ($this->session->has(array('base', 'additional')))
         $this->render('confirm', $this->session);
       else
         $this->redirect(self::ERROR_PATH);
@@ -136,7 +137,7 @@ class ApplicationController extends Controller
   {
     if ($this->parameter->requestMethod !== 'GET'
       || !$this->accept(self::REGISTER_CONFIRM_PATH)
-      || !$this->session->has(['base', 'additional']))
+      || !$this->session->has(array('base', 'additional')))
       $this->redirect(self::ERROR_PATH);
 
     $jsonManager = new JsonManager(DJ);
@@ -182,16 +183,16 @@ class ApplicationController extends Controller
         if ($param['password']['value'] === $param['recheck']['value']) {
           $jsonManager = new JsonManager(LJ);
           $jsonManager->modify('password');
-          $jsonManager->set(Hash::mhash($this->session->username, $param['password']['value']));
+          $jsonManager->set(Hash::hash($this->session->username, $param['password']['value']));
           $jsonManager->save();
 
           if ($this->session->has('limited'))
             $this->redirect(self::ADMIN_LOGOUT_PATH);
 
-          $this->render('password', ['success' => true]);
+          $this->render('password', array('success' => true));
         }
       } else {
-        $this->render('password', ['error' => true]);
+        $this->render('password', array('error' => true));
       }
     }
   }
@@ -211,9 +212,7 @@ class ApplicationController extends Controller
         $jsonManager = new JsonManager(LJ);
         $json = $jsonManager->read();
 
-        var_dump($json->password, Hash::mhash($post['username'], $post['password']));
-
-        if ($json->username === $post['username'] && $json->password === Hash::mhash($post['username'], $post['password'])) {
+        if ($json->username === $post['username'] && $json->password === Hash::hash($post['username'], $post['password'])) {
           $this->session->login = true;
           $this->session->username = $json->username;
           $this->redirect(self::ADMIN_PATH);
@@ -221,7 +220,7 @@ class ApplicationController extends Controller
       }
 
       if (!$this->session->has('login'))
-        $this->render('login', ['error' => true]);
+        $this->render('login', array('error' => true));
 
     } else if ($method === 'GET') {
       if ($this->session->has('login') && !$this->session->has('limited'))

@@ -2,7 +2,7 @@
   <div class="block-inner">
     <div class="footer-template-logo">
       <a href="https://github.com/coins13/welcoins" target="_blank" title="Welcoins on GitHub">
-        <img src="/images/welcoins.png" />
+        <?php echo '<img src="' .BASE .'/images/welcoins.png" />'; ?>
       </a>
     </div>
     <div class="footer-copyright">

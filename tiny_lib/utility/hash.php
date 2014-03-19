@@ -10,8 +10,11 @@ namespace Welcoins\Utility;
 
 class Hash
 {
-  public static function mhash($salt, $password)
+  public static function hash($salt, $password)
   {
-    return bin2hex(mhash(MHASH_SHA256, $password, $salt));
+    if (function_exists('mhash'))
+      return bin2hex(mhash(MHASH_SHA256, $password, $salt));
+    else
+      return hash('sha256', $salt.$password);
   }
 }

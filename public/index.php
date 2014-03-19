@@ -10,22 +10,29 @@
 
 // Directory separator of the system.
 define('DS', DIRECTORY_SEPARATOR);
+// Library root
+define('ROOT', '../../welcoins');
+// Document base
+define('BASE', '/~shinkan/14');
 // Library exception
-define('LD', '../tiny_lib');
+define('LD', ROOT .'/tiny_lib');
 // Configration directory
-define('CD', '../config');
+define('CD', ROOT .'/config');
 // Datasheet path
-define('DJ', '../data/datasheet.json');
+define('DJ', ROOT .'/data/datasheet.json');
 // Admin profile file path
-define('LJ', '../data/login.json');
+define('LJ', ROOT .'/data/login.json');
+// Template directory.
+define('TD', ROOT .'/templates');
 // Exception directory.
 define('ED', LD .'/exception');
 
 require_once(LD .'/class_arbiter.php');
-require_once(CD .'/config.php');
 
 use Welcoins\ClassArbiter as ClassArbiter;
 use Welcoins\Router as Router;
+use Welcoins\Config as Config;
 
 ClassArbiter::init();
+Config::init();
 Router::dispatch();

@@ -16,17 +16,17 @@
       <?php } ?>
     </div>
     <div class="section">
-      <form action="/admin/login" method="POST">
+      <?php echo '<form action="' .BASE .'/admin/login" method="POST">'; ?>
         <fieldset class="form-fieldset">
           <legend>ユーザ名</legend>
           <div class="form-part">
-            <?= $this->formTextInput(['type' => 'text', 'name' => 'username'], $this->option) ?>
+            <?php echo $this->formTextInput(array('type' => 'text', 'name' => 'username'), $this->option) ?>
           </div>
         </fieldset>
         <fieldset class="form-fieldset">
           <legend>パスワード</legend>
           <div class="form-part">
-            <?= $this->formTextInput(['type' => 'password', 'name' => 'password'], $this->option) ?>
+            <?php echo $this->formTextInput(array('type' => 'password', 'name' => 'password'), $this->option) ?>
           </div>
         </fieldset>
         <div class="form-action-buttons">

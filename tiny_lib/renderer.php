@@ -19,8 +19,6 @@ use Welcoins\Helper as Helper;
  */
 class Renderer
 {
-  const TEMPLATE_PATH = '../templates';
-
   public $html;
   private $helper;
 
@@ -33,23 +31,23 @@ class Renderer
   public function __call($name, $args)
   {
     if (method_exists($this->helper, $name))
-      return call_user_func_array([$this->helper, $name], $args);
+      return call_user_func_array(array($this->helper, $name), $args);
 
     throw new \RuntimeException("The method '{$name}' is not callable.");
   }
 
-  public function render($dir, $page, $option = [])
+  public function render($dir, $page, $option = array())
   {
     $this->option = $option;
     $this->id = $dir;
     $this->pageId = $page;
     $this->currentPathname = "/{$dir}/${page}.php";
-    echo $this->fetch(self::TEMPLATE_PATH .'/layouts/main.php');
+    echo $this->fetch(TD .'/layouts/main.php');
   }
 
   public function embedTemplate($pathname)
   {
-    $pathname = self::TEMPLATE_PATH . "/{$pathname}.php";
+    $pathname = TD . "/{$pathname}.php";
 
     if (!is_file($pathname))
       throw new \RuntimeException($pathname);
@@ -59,7 +57,7 @@ class Renderer
 
   public function embedContent($pathname = null)
   {
-    $pathname = self::TEMPLATE_PATH .(is_null($pathname) ? $this->currentPathname : $pathname);
+    $pathname = TD .(is_null($pathname) ? $this->currentPathname : $pathname);
 
     if (!is_file($pathname))
       throw new \RuntimeException(_notFile($pathname));

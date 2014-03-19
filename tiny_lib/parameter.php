@@ -10,8 +10,8 @@ namespace Welcoins;
 
 final class Parameter
 {
-  public $get = [];
-  public $post = [];
+  public $get = array();
+  public $post = array();
   public $serverName = '';
   public $pathinfo = '';
   public $pathname = '';
@@ -22,8 +22,8 @@ final class Parameter
 
   private function __construct()
   {
-    $this->get        = isset($_GET) ? $_GET : [];
-    $this->post       = isset($_POST) ? $_POST : [];
+    $this->get        = isset($_GET) ? $_GET : array();
+    $this->post       = isset($_POST) ? $_POST : array();
     $this->port       = isset($_SERVER['SERVER_PORT']) ? $_SERVER['SERVER_PORT'] : '';
     $this->serverName = isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : '';
     $this->pathinfo   = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '';

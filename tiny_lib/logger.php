@@ -11,8 +11,8 @@ namespace Welcoins;
 
 class Logger
 {
-  private $log = [];
-  private $errorLog = [];
+  private $log = array();
+  private $errorLog = array();
 
   public function dumpError($obj)
   {

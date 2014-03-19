@@ -18,17 +18,17 @@
       <?php } ?>
     </div>
     <div class="section">
-      <form action="/admin/password" method="POST">
+      <?php echo '<form action="' .BASE .'/admin/password" method="POST">'; ?>
         <fieldset class="form-fieldset">
           <legend>パスワード</legend>
           <div class="form-part">
-            <?= $this->formTextInput(['type' => 'password', 'name' => 'password'], $this->option) ?>
+            <?php echo $this->formTextInput(array('type' => 'password', 'name' => 'password'), $this->option) ?>
           </div>
         </fieldset>
         <fieldset class="form-fieldset">
           <legend>パスワード再入力</legend>
           <div class="form-part">
-            <?= $this->formTextInput(['type' => 'password', 'name' => 'recheck'], $this->option) ?>
+            <?php echo $this->formTextInput(array('type' => 'password', 'name' => 'recheck'), $this->option) ?>
           </div>
         </fieldset>
         <div class="form-action-buttons">

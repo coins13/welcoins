@@ -22,22 +22,22 @@
 
     <div class="section">
       <div class="section-block">
-        <h3><?= $this->formCount() ?>.氏名</h3>
-        <div class="section-content"><?= $this->option->base['name']['value'] ?></div>
+        <h3><?php echo $this->formCount() ?>.氏名</h3>
+        <div class="section-content"><?php echo $this->option->base['name']['value'] ?></div>
       </div>
 
       <div class="section-block">
-        <h3><?= $this->formCount() ?>.フリガナ</h3>
-        <div class="section-content"><?= $this->option->base['ruby']['value'] ?></div>
+        <h3><?php echo $this->formCount() ?>.フリガナ</h3>
+        <div class="section-content"><?php echo $this->option->base['ruby']['value'] ?></div>
       </div>
 
       <div class="section-block">
-        <h3><?= $this->formCount() ?>.メールアドレス</h3>
-        <div class="section-content"><?= $this->option->base['email']['value'] ?></div>
+        <h3><?php echo $this->formCount() ?>.メールアドレス</h3>
+        <div class="section-content"><?php echo $this->option->base['email']['value'] ?></div>
       </div>
 
       <div class="section-block">
-        <h3><?= $this->formCount() ?>.懇親会への参加/不参加</h3>
+        <h3><?php echo $this->formCount() ?>.懇親会への参加/不参加</h3>
         <div class="section-content">
           <?php
           if ($this->option->base['gathering']['value'] === 'true')
@@ -49,7 +49,7 @@
       </div>
 
       <div class="section-block">
-        <h3><?= $this->formCount() ?>.新歓合宿への参加/不参加</h3>
+        <h3><?php echo $this->formCount() ?>.新歓合宿への参加/不参加</h3>
         <div class="section-content">
           <?php
           if ($this->option->base['training']['value'] === 'true')
@@ -62,7 +62,7 @@
 
       <?php if ($this->shouldAskAllergy($this->option->base)) { ?>
       <div class="section-block">
-        <h3><?= $this->formCount() ?>.アレルギー</h3>
+        <h3><?php echo $this->formCount() ?>.アレルギー</h3>
         <div class="section-content">
           <?php
           $allergy = $this->option->additional['allergy']['value'];
@@ -78,13 +78,13 @@
 
       <?php if ($this->shouldAskReason($this->option->base)) { ?>
       <div class="section-block">
-        <h3><?= $this->formCount() ?>.新歓合宿に参加しない理由</h3>
-        <div class="section-content"><?= $this->option->additional['reason']['value'] ?></div>
+        <h3><?php echo $this->formCount() ?>.新歓合宿に参加しない理由</h3>
+        <div class="section-content"><?php echo $this->option->additional['reason']['value'] ?></div>
       </div>
       <?php } ?>
 
       <div class="section-block">
-        <h3><?= $this->formCount() ?>.その他</h3>
+        <h3><?php echo $this->formCount() ?>.その他</h3>
         <div class="section-content">
           <?php
           $question = $this->option->additional['question']['value'];
@@ -98,7 +98,7 @@
       </div>
 
       <div class="form-action-buttons">
-        <form action="/register/confirm" method="post">
+        <?php echo '<form action="' .BASE .'/register/confirm" method="post">'; ?>
           <input id="form-action-button-back" type="button" value="戻る" />
           <input type="submit" value="送信" />
           <input type="hidden" name="confirm" value="true" />

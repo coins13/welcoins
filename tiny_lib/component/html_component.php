@@ -16,11 +16,11 @@ class HtmlComponent
 
   public function styleSheet($pathname)
   {
-    return '<link rel="stylesheet" href="' .self::STYLESHEET_URI ."/{$pathname}.css" .'" />';
+    return '<link rel="stylesheet" href="' .BASE .self::STYLESHEET_URI ."/{$pathname}.css" .'" />';
   }
 
   public function script($pathname)
   {
-    return '<script type="text/javascript" charset="utf-8" src="' .self::SCRIPT_URI ."/{$pathname}.js" .'"></script>';
+    return '<script type="text/javascript" charset="utf-8" src="' .BASE .self::SCRIPT_URI ."/{$pathname}.js" .'"></script>';
   }
 }
