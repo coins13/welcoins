@@ -4,7 +4,7 @@
 
 来年度以降も使われることを想定して開発した。
 
-# 機能一覧
+## 機能一覧
 
 * 新入生の登録
 
@@ -22,7 +22,7 @@
 
 * アクセスログとエラーログの収集
 
-# インストレーション
+## インストレーション
 
 1.GitHub からソースコードをダウンロードする。
 
@@ -40,11 +40,11 @@
 
 6.完了
 
-# システム要件
+## システム要件
 
 * This system requires `>= PHP 5.4`
 
-# License
+## License
 
 Copyright (c) 2014 University of Tsukuba, Collge of Information Science
 
