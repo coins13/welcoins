@@ -1,0 +1,500 @@
+@charset "utf-8";
+
+/* general tags */
+body
+{
+  color: #4a4a4a;
+  font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
+  font-size: 14px;
+  font-weight: 100;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+a
+{
+  color: inherit;
+  text-decoration: none;
+}
+
+ol, li
+{
+  margin: 0px;
+  padding: 0px;
+  list-style:none;
+}
+
+img
+{
+  border: none;
+}
+
+h1, h2, h3
+{
+  margin: 0px;
+}
+
+fieldset
+{
+  border: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* global */
+.block-inner
+{
+  width: 1000px;
+  margin: 0 auto;
+  clear: both;
+}
+
+/* header */
+#header
+{
+  width: 100%;
+}
+
+.header-main
+{
+  height: 120px;
+  clear: both;
+}
+
+.header-banner
+{
+  float: left;
+  height: 120px;
+  text-align: center;
+}
+
+.header-banner-image
+{
+  width: 310px;
+  margin: 25px 0px;
+}
+
+.header-menu,
+.header-menu li
+{
+  float: right;
+  height: 120px;
+}
+
+.header-menu li
+{
+  width: 120px;
+  margin-right: 10px;
+}
+
+a.header-menu-highlight
+{
+  font-size: 15px;
+}
+
+.header-menu-anchor
+{
+  display: block;
+  color: #2a2a2a;
+  font-size: 13px;
+  font-weight: bold;
+  width: 100%;
+  height: 42px;
+  margin-top: 38px;
+  line-height: 42px;
+  border-radius: 2px;
+  text-align: center;
+  transition: all 200ms linear;
+}
+
+.header-menu-anchor:hover
+{
+  background-color: #dfdfdf;
+}
+
+.header-menu-anchor-active
+{
+  background-color: #d1fb74;
+}
+
+.herarchy
+{
+  clear: both;
+  background-color: #e3e3e3;
+  overflow: hidden;
+}
+
+#herarchy-title
+{
+  font-weight: bold;
+}
+
+.herarchy-content
+{
+  float: left;
+  width: 200px;
+  height: 130px;
+}
+
+#herarchy-title
+{
+  font-size: 18px;
+  line-height: 20px;
+  margin-top: 43px;
+}
+
+#herarchy-sub-title
+{
+  color: #555;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 30px;
+}
+
+.herarchy-stage
+{
+  float: left;
+  position: relative;
+  width: 800px;
+}
+
+.herarchy-border
+{
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  top: 63px;
+  border-radius: 5px;
+  background-color: #aaa;
+}
+
+.herarchy-progress-bar
+{
+  position: absolute;
+  height: 8px;
+  top: 63px;
+  border-radius: 5px;
+  background-color: #93CF4A;
+}
+
+.herarchy-progress-bar-additional
+{
+  width: 250px;
+}
+.herarchy-progress-bar-confirm
+{
+  width: 500px;
+}
+
+.herarchy-progress-bar-sent
+{
+  width: 100%;
+}
+
+#herarchy-phase
+{
+  position: absolute;
+  font-weight: bold;
+  height: 45px;
+  line-height: 45px;
+  margin-top: 43px;
+  padding: 0px 15px;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  background-color: #fff;
+  opacity: 0.88;
+}
+
+.herarchy-phase-additional
+{
+  left: 250px;
+}
+.herarchy-phase-confirm
+{
+  left: 500px;
+}
+
+.herarchy-phase-sent
+{
+  right: 0px;
+}
+
+.herarchy-pass
+{
+  position: absolute;
+  color: #70a72d;
+  font-size: 12px;
+  font-weight: bold;
+  top: 78px;
+}
+
+.herarchy-pass-additional
+{
+  left: 250px;
+}
+
+.herarchy-pass-confirm
+{
+  left: 500px;
+}
+
+/* Main */
+#main
+{
+  min-height: 300px;
+  padding-bottom: 40px;
+}
+
+.section
+{
+  padding-top: 40px;
+}
+
+.section:first-child
+{
+  padding-top: 30px;
+}
+
+.section-block
+{
+  margin-bottom: 30px;
+}
+
+.section-block h3
+{
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0px;
+}
+
+.section-content
+{
+  font-size: 16px;
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 2px;
+  background-color: #F1F0EE;
+}
+
+.section-list
+{
+  display: none;
+}
+
+.section-title-toggle
+{
+  cursor: pointer;
+  padding: 10px 20px;;
+}
+
+.section-title-toggle:hover
+{
+  border-radius: 2px;
+  background-color: #F1F0EE;
+}
+
+/* Form */
+.form-required
+{
+  color: #E14D4C;
+  font-weight: bold;
+}
+
+.form-fieldset
+{
+  margin-bottom: 40px;
+  clear: both;
+}
+
+.form-fieldset legend
+{
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+}
+
+.form-description
+{
+  float: left;
+  width: 410px;
+}
+
+.form-part
+{
+  float: right;
+}
+
+.form-part-set
+{
+  position: relative;
+  float: right;
+}
+
+.form-part input[type="text"],
+.form-part input[type="password"],
+.form-part textarea
+{
+  font-size: 13px;
+  width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background-color: #f5f1f9;
+  transition: all 200ms linear;
+}
+
+.form-part input[type="text"],
+.form-part input[type="password"]
+{
+  height: 40px;
+  padding: 0px 20px;
+}
+
+.form-part textarea
+{
+  height: 50px;
+  padding: 20px;
+}
+
+.form-part input[type="text"]:hover,
+.form-part input[type="text"]:focus,
+.form-part input[type="password"]:hover,
+.form-part input[type="password"]:focus
+{
+  background-color: #dfdfdf;
+}
+
+.form-part input[type="radio"]
+{
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.form-part input[type="radio"] + label
+{
+  display: block;
+  width: 80px;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 10px;
+  padding: 0px 20px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background-color: #F5F1f9;
+  text-align: center;
+  transition: all 50ms linear;
+}
+
+.form-part input[type="radio"]:checked + label
+{
+  font-weight: bold;
+}
+
+.form-part input[type="radio"]:checked + label[for="attend-gathering"],
+.form-part input[type="radio"]:checked + label[for="attend-training"]
+{
+  background-color: #d1fb74;
+}
+
+.form-part input[type="radio"]:checked + label[for="decline-gathering"],
+.form-part input[type="radio"]:checked + label[for="decline-training"]
+{
+  background-color: #a7c4ff;
+}
+
+.form-action-buttons
+{
+  text-align: center;
+}
+
+.form-action-buttons input[type="submit"],
+.form-action-buttons input[type="button"]
+{
+  cursor: pointer;
+  font-weight: bold;
+  height: 40px;
+  line-height: 40px;
+  padding: 0px 20px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background-color: #F5F1f9;
+  transition: all 200ms linear;
+}
+
+.form-action-buttons input[type="submit"]:hover,
+.form-action-buttons input[type="button"]:hover
+{
+  background-color: #dfdfdf;
+}
+
+.form-error
+{
+  border: 3px solid #F86F7E !important;
+}
+
+.form-input-bigger
+{
+  height: 100px !important;
+}
+
+.registry-table
+{
+  width: 100%;
+  border: 0px;
+  border-collapse: separate;
+  border-spacing: none;
+}
+
+.registry-table th,
+.registry-table td
+{
+  font-size: 13px;
+  font-weight: bold;
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.registry-table th
+{
+  border: 1px solid #F1F0EE;
+  background-color: #a7c4ff;
+}
+
+.registry-table td
+{
+  background-color: #F1F0EE;
+}
+
+.registry-table-second
+{
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+
+/* Footer */
+#footer
+{
+  height: 200px;
+  background-color: #444;
+}
+
+.footer-template-logo img
+{
+  margin-top: 30px;
+  width: 200px;
+}
+
+.footer-copyright
+{
+  color: #fff;
+  font-size: 12px;
+  height: 20px;
+  line-height: 20px;
+  margin-top: 40px;
+  text-align: right;
+}
